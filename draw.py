@@ -74,7 +74,13 @@ for body in solar_system:
 
 
 # save output
-output_fn = Path("solar_system.png")
-d.save_svg(str(output_fn.with_suffix(".svg")))
+output_fn = Path("solar_system.svg")
 d.save_png(str(output_fn))
 print(f"Saved to {output_fn}")
+try:
+    output_fn_png = Path("solar_system.png")
+    d.save_svg(str(output_fn_png))
+    print(f"Saved to {output_fn_png}")
+except Exception as e:
+    print("Could not save to png.")
+    print(e)
